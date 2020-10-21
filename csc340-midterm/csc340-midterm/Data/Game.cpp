@@ -6,9 +6,7 @@
 //
 
 #include "Game.h"
-#include <iostream>
 #include <iomanip>
-using namespace std;
 
 /*
     The empty constructor should be never used in this project since
@@ -85,4 +83,19 @@ void Game::printInfo() const{
     scores.printScoresOnly();
     cout << "Developer: " << developer << endl;
     cout << "Rating: " << rating << endl;
+}
+
+//This function is act exactly as printInfo()
+ostream &operator<<(ostream &os, const Game game){
+    cout << setfill('-') << setw(24) << "" << endl
+         << "Name: " << game.getGameName() << endl
+         << "Platform: " << game.getPlatform() << endl
+         << "Year of Release: " << game.getYearOfRelease() << endl
+         << "Genre: " << game.getGenre() << endl
+         << "Publisher: " << game.getPublisher()<< endl
+         << game.getSales()
+         << game.getScores()
+         << "Developer: " << game.getDeveloper() << endl
+         << "Rating: " << game.getRating() << endl;
+    return os;
 }

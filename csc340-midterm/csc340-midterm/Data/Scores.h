@@ -7,7 +7,7 @@
 
 #ifndef Scores_h
 #define Scores_h
-
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -37,7 +37,8 @@ class Scores{
         void printInfo() const;
     
         void printScoresOnly() const;
-    
+        
+        friend ostream &operator<<(ostream &os, const Scores scores);
     
     private:
         string id;

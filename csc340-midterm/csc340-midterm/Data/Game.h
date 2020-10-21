@@ -38,6 +38,8 @@ class Game{
         string getRating()const;
         
         void printInfo() const;
+        
+        friend ostream &operator<<(ostream &os, const Game game);
     private:
         string id;
         

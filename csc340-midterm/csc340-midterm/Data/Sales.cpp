@@ -6,7 +6,6 @@
 //
 
 #include "Sales.h"
-#include <iostream>
 #include <iomanip>
 /*
     The empty constructor should be never used in this project since
@@ -83,4 +82,12 @@ void Sales::printSalesOnly() const{
     cout << "Japan Sales: " << JPSales << endl;
     cout << "Other area Sales: " << otherSales << endl;
     cout << "Global Sales(Total): " << globalSales << endl;
+}
+// this functio act exactly as printSalesOnly()
+ostream &operator<<(ostream &os, const Sales sales){
+    os << "Euro Sales: " << sales.getEUSales() << endl
+       << "Japan Sales: " << sales.getJPSales() << endl
+       << "Other area Sales: " << sales.getOtherSales() << endl
+       << "Global Sales(Total): " << sales.getGlobalSales()<< endl;
+    return os;
 }

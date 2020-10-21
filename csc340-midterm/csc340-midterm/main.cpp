@@ -29,6 +29,7 @@ int main(int argc, const char * argv[]) {
     Scores scores(gameName, platform, yearOfRelease, criticScore, criticCount, userScore, userCount);
     Game game(gameName, platform, yearOfRelease, genre, publisher, sales, scores, developer, rating);
     
-    game.printInfo();
+   // game.printInfo();
+    cout << game;
     return 0;
 }

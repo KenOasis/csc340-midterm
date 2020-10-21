@@ -6,7 +6,6 @@
 //
 
 #include "Scores.h"
-#include <iostream>
 #include <iomanip>
 /*
     The empty constructor should be never used in this project since
@@ -76,4 +75,13 @@ void Scores::printScoresOnly() const{
     cout << "Critic Count: " << criticCount << endl;
     cout << "User Score: " << userScore << endl;
     cout << "User Count: " << userCount << endl;
+}
+
+//this function act exactly like printScoresOnly()
+ostream &operator<<(ostream &os, const Scores scores){
+    os << "Critic Score: " << scores.getCriticScore() << endl
+       << "Critic Count: " << scores.getCriticCount() << endl
+       << "User Score: " << scores.getUserScore() << endl
+       << "User Count: " << scores.getUserCount() << endl;
+    return os;
 }

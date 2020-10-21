@@ -8,6 +8,7 @@
 #ifndef Sales_h
 #define Sales_h
 #include <string>
+#include <iostream>
 using namespace std;
 class Sales{
 public:
@@ -38,6 +39,7 @@ public:
     
     void printSalesOnly() const;
     
+    friend ostream &operator<<(ostream &os, const Sales sales);
 private:
     string id;
     string gameName;
