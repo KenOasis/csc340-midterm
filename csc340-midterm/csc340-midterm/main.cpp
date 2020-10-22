@@ -4,11 +4,12 @@
 //
 //  Created by Jinjian Tan on 10/20/20.
 //
-#include "Data/Game.h"
+#include "Data/Utilities.h"
 
 #include <iostream>
 using namespace std;
 int main(int argc, const char * argv[]) {
+    /* // thest fot testing the function 
     string gameName =  "Wii Sports";
     string platform = "Wii";
     int yearOfRelease = 2006;
@@ -31,5 +32,24 @@ int main(int argc, const char * argv[]) {
     
    // game.printInfo();
     cout << game;
+    */
+    // Chagee the filepath to your local (absolute) path of data.csv
+    string filepath = "/Users/jinjiantan/Git/csc340-midterm/csc340-midterm/csc340-midterm/Data/data.csv";
+    Utilities utilities;
+    utilities.LoadFile(filepath);
+    int i;
+    // The code below is the example of filtering by field developer and genre
+    vector<Game> gamesByDev = utilities.getGamesByDeveloper("Nintendo");
+    vector<Game> gamesByDevThenByGenre = utilities.getGamesByGenre(gamesByDev, "Platform");
+    
+    for(i = 0; i < gamesByDevThenByGenre.size(); ++i){
+        cout << gamesByDevThenByGenre.at(i);
+    }
+    cout << i << " games have been listed." << endl;
+    
+      
+    vector<Game> gamesByGenre =
+    utilities.getGamesByGenre("Platform");
+    cout << gamesByGenre.size() << " games have been listed." << endl;
     return 0;
 }
