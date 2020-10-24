@@ -71,17 +71,17 @@ void Scores::printInfo() const{
 }
 
 void Scores::printScoresOnly() const{
-    cout << "Critic Score: " << criticScore << endl;
-    cout << "Critic Count: " << criticCount << endl;
-    cout << "User Score: " << userScore << endl;
-    cout << "User Count: " << userCount << endl;
+    cout << "Critic score: " << criticScore << endl;
+    cout << "Critic count: " << criticCount << endl;
+    cout << "User score: " << userScore << endl;
+    cout << "User count: " << userCount << endl;
 }
 
 //this function act exactly like printScoresOnly()
 ostream &operator<<(ostream &os, const Scores scores){
-    os << "Critic Score: " << scores.getCriticScore() << endl
-       << "Critic Count: " << scores.getCriticCount() << endl
-       << "User Score: " << scores.getUserScore() << endl
-       << "User Count: " << scores.getUserCount() << endl;
+    os << "Critic score: " << scores.getCriticScore() << endl
+       << "Critic count: " << scores.getCriticCount() << endl
+       << "User score: " << scores.getUserScore() << endl
+       << "User count: " << scores.getUserCount() << endl;
     return os;
 }

@@ -77,17 +77,18 @@ void Sales::printInfo() const{
 }
 
 void Sales::printSalesOnly() const{
-    
-    cout << "Euro Sales: " << EUSales << endl;
-    cout << "Japan Sales: " << JPSales << endl;
-    cout << "Other area Sales: " << otherSales << endl;
-    cout << "Global Sales(Total): " << globalSales << endl;
+    cout << "North America sales: " << NASales << endl;
+    cout << "Euro sales: " << EUSales << endl;
+    cout << "Japan sales: " << JPSales << endl;
+    cout << "Other area sales: " << otherSales << endl;
+    cout << "Global sales(Total): " << globalSales << endl;
 }
 // this functio act exactly as printSalesOnly()
 ostream &operator<<(ostream &os, const Sales sales){
-    os << "Euro Sales: " << sales.getEUSales() << endl
-       << "Japan Sales: " << sales.getJPSales() << endl
-       << "Other area Sales: " << sales.getOtherSales() << endl
-       << "Global Sales(Total): " << sales.getGlobalSales()<< endl;
+    os << "North America sales: " << sales.getNASales() << endl
+       << "Euro sales: " << sales.getEUSales() << endl
+       << "Japan sales: " << sales.getJPSales() << endl
+       << "Other area sales: " << sales.getOtherSales() << endl
+       << "Global sales(Total): " << sales.getGlobalSales()<< endl;
     return os;
 }
