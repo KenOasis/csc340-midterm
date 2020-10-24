@@ -47,14 +47,24 @@ class Utilities{
         
         // Get games from dataset by a given publisher
         vector<Game> getGamesByPublisher(string publisher) const;
+    
         // Get games from a given collection of Game by a given publisher
         vector<Game> getGamesByPublisher(vector<Game> gamesCollection, string publisher) const;
-  
+        
+        // Get games from a dataset by a given publihser
         vector<Game> getGamesByRating(string rating) const;
         
+        // Get games from a given collection of Game by a given rating
         vector<Game> getGamesByRating(vector<Game> gamesCollection, string rating) const;
-
+    
+    // Print out all the info of all the Game in whole dataset
     void printAllGames() const;
+    
+    // Print a given set of fileds from a given set of Game collection
+    // fields is an array of string which respresent the fileds you want to print
+    // please check README.md to see the schema.
+    // filedNum is the number of fields.
+    void printByFields(vector<Game> gameCollection, string fields[], int fieldNum) const;
     private:
         vector<Game> games;
     

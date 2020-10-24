@@ -42,7 +42,7 @@ int main(int argc, const char * argv[]) {
     vector<Game> gamesByDev = utilities.getGamesByDeveloper("Nintendo");
     vector<Game> gamesByDevThenByGenre = utilities.getGamesByGenre(gamesByDev, "Platform");
     
-    for(i = 0; i < gamesByDevThenByGenre.size(); ++i){
+/*    for(i = 0; i < gamesByDevThenByGenre.size(); ++i){
         cout << gamesByDevThenByGenre.at(i);
     }
     cout << i << " games have been listed." << endl;
@@ -51,5 +51,9 @@ int main(int argc, const char * argv[]) {
     vector<Game> gamesByGenre =
     utilities.getGamesByGenre("Platform");
     cout << gamesByGenre.size() << " games have been listed." << endl;
+ */
+    string fields[] = {"Name", "Platform", "EUSales"};
+    int fieldSize = 3;
+    utilities.printByFields(gamesByDevThenByGenre,fields, fieldSize);
     return 0;
 }

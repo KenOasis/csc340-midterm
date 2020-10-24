@@ -1,6 +1,8 @@
-#  Data documentation
+#  Read me before start.
 
 ## "data.csv" file is the raw data set in csv file format which is from the [kaggle.com](https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings)
+
+## In the original data some fields (scores/ sales/ developer/ rating) is empty or some non-sense values ("tbd" as "to be determined" or "N/A" ), in the class I will store them as  value "-1" or empty string depends on their type. 
 
 ## The class **Game**, **Sales**, **Scores** are basic data structure to store the data in memories from the dataset (Do not worry about private field "id")
 - Game
@@ -48,4 +50,31 @@
         // and a printALLGames to print all games in dataset 
     }
    ``` 
-## In fact, the methods in utilities is similar to  the filter function of the spreadsheet. You can find a example in a main file.
+## In fact, the methods in utilities is similar to the filter function of the spreadsheet. You can find a example in main file.
+
+## Schema of parameter of function printByFields:
+```Java
+{
+    /* The string in array fields must be one of below (Letters only, case               in-sensitive). In addtion, the order of field to be printed would be 
+       the same as the order of the strings.
+    
+    {
+        "Name",
+        "Platform",
+        "YearOfRelease",
+        "Genre",
+        "Publisher", 
+        "EUSales",
+        "JPSales",
+        "OtherSales",
+        "GlobalSales",
+        "CriticScore",
+        "CriticCount",
+        "UserScore",
+        "UserCount",
+        "Developer",
+        "Rating"
+    }
+}
+}
+```

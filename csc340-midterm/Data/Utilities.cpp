@@ -282,3 +282,63 @@ void Utilities::printAllGames() const{
         cout << games.at(i);
     }
 }
+// helper method to compare two string ignoring the case
+bool equalIgnoreCase(string s1, string s2){
+    unsigned long size = s1.size();
+    if(s2.size() != size){
+        return false;
+    }
+    for(unsigned long i = 0; i < size; ++i){
+        if(tolower(s1[i]) != tolower(s2[i])){
+            return false;
+        }
+    }
+    return true;
+}
+void printGameByFields(Game game, string fields[],int fieldNum ) {
+    cout << setfill('-') << setw(24) << "" << endl;
+    for(int i = 0; i < fieldNum; ++i){
+        if(equalIgnoreCase(fields[i], "Name")){
+            cout << "Name: " << game.getGameName() << endl;
+        }else if(equalIgnoreCase(fields[i], "Platform")){
+            cout << "Platform: " << game.getPlatform() << endl;
+        }else if(equalIgnoreCase(fields[i], "YearOfRelease")){
+            cout << "Year of Release: " << game.getYearOfRelease() << endl;
+        }else if(equalIgnoreCase(fields[i], "Genre")){
+            cout << "Genre: " << game.getGenre() << endl;
+        }else if(equalIgnoreCase(fields[i], "Publisher")){
+            cout << "Publisher: " << game.getPublisher() << endl;
+        }else if(equalIgnoreCase(fields[i], "EUSales")){
+            cout << "Euro sales: " << game.getSales().getEUSales() << endl;
+        }else if(equalIgnoreCase(fields[i], "JPSales")){
+            cout << "Japan sales: " << game.getSales().getJPSales() << endl;
+        }else if(equalIgnoreCase(fields[i], "NASales")){
+            cout << "North America sales: " << game.getSales().getNASales() << endl;
+        }else if(equalIgnoreCase(fields[i], "OtherSales")){
+            cout << "Other area sales: " << game.getSales().getOtherSales() << endl;
+        }else if(equalIgnoreCase(fields[i], "GlobalSales")){
+            cout << "Global sales(Total): " << game.getSales().getGlobalSales() << endl;
+        }else if(equalIgnoreCase(fields[i], "CriticScore")){
+            cout << "Critic score: " << game.getScores().getCriticScore() << endl;
+        }else if(equalIgnoreCase(fields[i], "CriticCount")){
+            cout << "Critic count: " << game.getScores().getCriticCount() << endl;
+        }else if(equalIgnoreCase(fields[i], "UserScore")){
+            cout << "Critic count: " << game.getScores().getUserScore() << endl;
+        }else if(equalIgnoreCase(fields[i], "UserCount")){
+            cout << "User count: " << game.getScores().getUserCount() << endl;
+        }else if(equalIgnoreCase(fields[i], "Developer")){
+            cout << "Developer: " << game.getDeveloper() << endl;
+        }else if(equalIgnoreCase(fields[i], "Rating")){
+            cout << "Rating: " << game.getRating() << endl;
+        }else{
+            cout << "Wrong Filed Names as " << fields[i] << ", please correct it" << endl;
+        }
+    }
+}
+void Utilities::printByFields(vector<Game> gameCollection, string fields[], int fieldNum) const{
+    if(fieldNum != 0){
+        for(int i = 0; i < gameCollection.size(); ++i){
+            printGameByFields(gameCollection.at(i), fields, fieldNum);
+        }
+    }
+}
