@@ -278,9 +278,11 @@ vector<Game> Utilities::getGamesByRating(vector<Game> gamesCollection, string ra
     return gamesByRating;
 }
 void Utilities::printAllGames() const{
-    for(int i = 0; i < games.size(); ++i){
+    int i;
+    for(i = 0; i < games.size(); ++i){
         cout << games.at(i);
     }
+    cout << "In total, " << i << " games have been listed." << endl;
 }
 // helper method to compare two string ignoring the case
 bool equalIgnoreCase(string s1, string s2){
@@ -330,6 +332,8 @@ void printGameByFields(Game game, string fields[],int fieldNum ) {
             cout << "Developer: " << game.getDeveloper() << endl;
         }else if(equalIgnoreCase(fields[i], "Rating")){
             cout << "Rating: " << game.getRating() << endl;
+        }else if(equalIgnoreCase(fields[i], "All")){
+            cout << game << endl;
         }else{
             cout << "Wrong Filed Names as " << fields[i] << ", please correct it" << endl;
         }
@@ -337,8 +341,11 @@ void printGameByFields(Game game, string fields[],int fieldNum ) {
 }
 void Utilities::printByFields(vector<Game> gameCollection, string fields[], int fieldNum) const{
     if(fieldNum != 0){
-        for(int i = 0; i < gameCollection.size(); ++i){
+        int i;
+        for(i = 0; i < gameCollection.size(); ++i){
             printGameByFields(gameCollection.at(i), fields, fieldNum);
         }
+        cout << "In total, " << i << " games have been listed." << endl;
     }
 }
+    
