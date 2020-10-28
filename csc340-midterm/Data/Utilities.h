@@ -11,7 +11,6 @@
 #include <vector>
 class Utilities{
     public:
-    
         int LoadFile(string filepath);
         // Initializing the data
         Utilities();
@@ -51,7 +50,7 @@ class Utilities{
         // Get games from a given collection of Game by a given publisher
         vector<Game> getGamesByPublisher(vector<Game> gamesCollection, string publisher) const;
         
-        // Get games from a dataset by a given publihser
+        // Get games from a dataset by a given publisher
         vector<Game> getGamesByRating(string rating) const;
         
         // Get games from a given collection of Game by a given rating
@@ -65,6 +64,7 @@ class Utilities{
     // please check README.md to see the schema.
     // filedNum is the number of fields.
     void printByFields(vector<Game> gameCollection, string fields[], int fieldNum) const;
+    
     private:
         vector<Game> games;
     

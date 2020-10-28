@@ -50,7 +50,7 @@
         // and a printALLGames to print all games in dataset 
     }
    ``` 
-## In fact, the methods in utilities is similar to the filter function of the spreadsheet. You can find a example in main file.
+## In fact, the methods in utilities is similar to the filter function of the spreadsheet. You can find a example in  Example.cpp file.
 
 ## Schema of parameter of function printByFields:
 ```Java
@@ -75,6 +75,7 @@
         "Developer",
         "Rating"
     }
+    // you can use parameter "All" to print all the field
 }
 }
 ```
