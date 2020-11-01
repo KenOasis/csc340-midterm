@@ -44,6 +44,8 @@ void GenreAnalysis::getPopularGenresBySales(vector<Game> games)
 					count[k]++;
 					totalSales[k] += games[i].getSales().getGlobalSales();
 				}
+				//!!!! the else if branch is always exectued since k will always add up to genere.size() - 1;
+				// also, we need to skip the genre "Misc" since this kind is miscellaneous.
 				else if (k == (genres.size() - 1)) {
 					notIncluded = true;
 				}
