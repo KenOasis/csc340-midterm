@@ -37,11 +37,11 @@ void PrintMenu() {
          break;
 
       case '3':
-         cout << "What percentage of developers outsource their publishing?" << GetDevOutsource() << endl;
+         cout << "What percentage of developers outsource their publishing?" << GetDevOutsource() << endl; // please add correct get function
          break;
 
       case '4':
-         cout << "How many developers use the same publisher?" << GetSamePub() << endl;
+         cout << "How many developers use the same publisher?" << GetSamePub() << endl; // please add correct get function
          break;
 
       case '5':
