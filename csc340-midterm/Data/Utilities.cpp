@@ -348,4 +348,6 @@ void Utilities::printByFields(vector<Game> gameCollection, string fields[], int 
         cout << "In total, " << i << " games have been listed." << endl;
     }
 }
+
+
     
