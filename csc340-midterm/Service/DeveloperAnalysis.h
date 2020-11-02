@@ -3,12 +3,18 @@
 //  csc340-midterm
 //
 //  Created by Jinjian Tan on 10/30/20.
-//
+//  Implemented by Juan Hernandez 11/1/20
 
 #ifndef DeveloperAnalysis_h
 #define DeveloperAnalysis_h
+
+#include "Utilities.h"
+#include "Game.h"
+#include <vector>
 class DeveloperAnalysis{
 public:
+
+    DeveloperAnalysis(Utilities tools);
     /*
         This function addresses the question b) in the proposal
      
@@ -29,7 +35,10 @@ public:
         2) sort the games by the given fields (sales or userscores)
         3) print out top 10 games of the sorting result.
      */
-    void getPopularGamesByDeveloper(string developer string fieldname)
-    
-}
+    void getPopularGamesByDeveloper(string developer, string fieldname);
+private:
+    Utilities utility;
+    vector<Game> gameList;
+};
+
 #endif /* DeveloperAnalysis_h */

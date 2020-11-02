@@ -31,7 +31,7 @@ public:
     void getPopularGenresBySales(vector<Game> games);
     
     /*
-        This function addresses the question d) in the proposal
+        This function addresses the question d) and e) in the proposal
 
         parameter @fieldname is the field be used to sort the games, it could be developer, sales, userscores or critic scores.
         parameter @platform is the platform to be researched
@@ -59,5 +59,5 @@ public:
     
     GenreAnalysis();
 };
-
+ 
 #endif /* GenreAnalysis_h */

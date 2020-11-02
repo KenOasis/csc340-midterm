@@ -129,7 +129,7 @@ int Utilities::LoadFile(string filename){
 }
 
 Utilities::Utilities(){
-    cout << "Utilities initialized." << endl;
+    
 }
 
 
