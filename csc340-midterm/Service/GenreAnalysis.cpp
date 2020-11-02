@@ -101,7 +101,7 @@ void GenreAnalysis::getPopularGenresBySales(vector<Game> games)
         cout << setw(15) << left << count[i]  << "|";
         cout << setw(15) << left << totalSales[i] << endl;
     }
-    cout << setfill('-') << setw(47) << endl;
+    cout << setfill('-') << setw(47) << "" << endl;
 }
 
 GenreAnalysis::GenreAnalysis(){

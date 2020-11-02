@@ -1,13 +1,19 @@
-#include "Utilities.h"
-#include "Game.h"
+
+//
+//  DeveloperAnalysis.h
+//  csc340-midterm
+//
+//  Created by Jinjian Tan on 10/30/20.
+//  Implemented by Juan Hernandez 11/1/20
 #include "DeveloperAnalysis.h"
 #include <vector>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-DeveloperAnalysis::DeveloperAnalysis(Utilities tools, vector<> games) {
-   utility = tools;
-   gameList = utility.getAllGames();
+DeveloperAnalysis::DeveloperAnalysis(Utilities tools){
+    utility = tools;
+    gameList = utility.getAllGames();
 }
 
 /*
@@ -24,7 +30,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
     double pubEqualsdev = 0;
     double percentage;
     for(int i=0; i < gameList.size(); i++) {
-       if(gameList.at(i).getDeveloper == gameList.at(i).getPublisher) {
+       if(gameList.at(i).getDeveloper() == gameList.at(i).getPublisher()) {
           pubEqualsdev = pubEqualsdev + 1;
        }
     }
@@ -42,6 +48,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
         2) sort the games by the given fields (sales or userscores)
         3) print out top 10 games of the sorting result.
      */
+
  void DeveloperAnalysis::getPopularGamesByDeveloper(string developer, string fieldname) {
     vector<Game> gamesByDev = utility.getGamesByDeveloper(gameList, developer);
     int maxIndex;
@@ -53,44 +60,30 @@ void DeveloperAnalysis::getPercentageDevByPub() {
             maxIndex = i;
 
             for (int j = i; j < gamesByDev.size(); ++j) {
-                if(gamesbyDev.at(j).getSales().getGlobalSales() > currMax) {
+                if(gamesByDev.at(j).getSales().getGlobalSales() > currMax) {
                     maxIndex = j;
                     currMax = gamesByDev.at(j).getSales().getGlobalSales();
                 }
           }
 
-         temp1 = new Game(
-            gamesbyDev.at(i).getGameName(),
-            gamesByDev.at(i).getPlatform(),
-            gamesByDev.at(i).getYearOfRelease(),
-            gamesByDev.at(i).getGenre(),
-            gamesByDev.at(i).getPublisher(),
-            gamesByDev.at(i).getSales(),
-            gamesByDev.at(i).getScores(),
-            gamesByDev.at(i).getDeveloper(),
-            gamesByDev.at(i).getRating()
-            );
-
-         temp2 = new Game(
-            gamesbyDev.at(maxIndex).getGameName(),
-            gamesByDev.at(maxIndex).getPlatform(),
-            gamesByDev.at(maxIndex).getYearOfRelease(),
-            gamesByDev.at(maxIndex).getGenre(),
-            gamesByDev.at(maxIndex).getPublisher(),
-            gamesByDev.at(maxIndex).getSales(),
-            gamesByDev.at(maxIndex).getScores(),
-            gamesByDev.at(maxIndex).getDeveloper(),
-            gamesByDev.at(maxIndex).getRating()
-            );
+            temp1 = gamesByDev.at(i);
+            temp2 = gamesByDev.at(maxIndex);
 
          gamesByDev.at(i) = temp2;
          gamesByDev.at(maxIndex) = temp1;
        }
 
-       cout << "The top ten games based on sales are: " << endl;
-       for(int i = 0; i < 10; i++){
-          cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getSales().getGlobalSales() << " million units"<< endl;
-       }
+        cout << "The top ten games based on sales are: " << endl;
+        int i;
+        for(i = 0; i < gamesByDev.size(); i++){
+            if(i == 10)break;
+           if(gamesByDev.at(i).getSales().getGlobalSales() != -1){
+               cout << setfill('-') << setw(47) << "" << endl;
+               cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getSales().getGlobalSales() << " million units"<< endl;
+           }
+        }
+        cout << setfill('-') << setw(47) << "" << endl;
+        cout << "There are total: " << i << " game(s) listed." << endl;
     }
     else if(fieldname == "userScore") {
         for(int i = 0; i < gamesByDev.size(); ++i) {
@@ -98,46 +91,34 @@ void DeveloperAnalysis::getPercentageDevByPub() {
             maxIndex = i;
 
             for (int j = i; j < gamesByDev.size(); ++j) {
-                if(gamesbyDev.at(j).getScores().getUserScore() > currMax) {
+                if(gamesByDev.at(j).getScores().getUserScore() > currMax) {
                     maxIndex = j;
                     currMax = gamesByDev.at(j).getScores().getUserScore();
                 }
-          }
+            }
 
-         temp1 = new Game(
-            gamesbyDev.at(i).getGameName(),
-            gamesByDev.at(i).getPlatform(),
-            gamesByDev.at(i).getYearOfRelease(),
-            gamesByDev.at(i).getGenre(),
-            gamesByDev.at(i).getPublisher(),
-            gamesByDev.at(i).getSales(),
-            gamesByDev.at(i).getScores(),
-            gamesByDev.at(i).getDeveloper(),
-            gamesByDev.at(i).getRating()
-            );
 
-         temp2 = new Game(
-            gamesbyDev.at(maxIndex).getGameName(),
-            gamesByDev.at(maxIndex).getPlatform(),
-            gamesByDev.at(maxIndex).getYearOfRelease(),
-            gamesByDev.at(maxIndex).getGenre(),
-            gamesByDev.at(maxIndex).getPublisher(),
-            gamesByDev.at(maxIndex).getSales(),
-            gamesByDev.at(maxIndex).getScores(),
-            gamesByDev.at(maxIndex).getDeveloper(),
-            gamesByDev.at(maxIndex).getRating()
-            );
+            temp1 = gamesByDev.at(i);
 
-         gamesByDev.at(i) = temp2;
-         gamesByDev.at(maxIndex) = temp1;
+            temp2 = gamesByDev.at(maxIndex);
+            gamesByDev.at(i) = temp2;
+            gamesByDev.at(maxIndex) = temp1;
        }
 
-       cout << "The top ten games based on user scores are: " << endl;
-       for(int i = 0; i < 10; i++){
-          cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getSales().getGlobalSales() << " /10 according to users."<< endl;
-       }
+        cout << "The top ten games based on user scores are: " << endl;
+        int i;
+        for(i = 0; i < gamesByDev.size(); i++){
+            if(i == 10)break;
+            if(gamesByDev.at(i).getScores().getUserScore() != -1){
+                cout << setfill('-') << setw(47) << "" << endl
+                cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getScores().getUserScore() << " /10 according to users."<< endl;
+            }
+        }
+        cout << setfill('-') << setw(47) << "" << endl;
+        cout << "There are total: " << i << " game(s) listed." << endl;
 
     }
 
 
  }
+

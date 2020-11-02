@@ -5,6 +5,7 @@
 //  Created by Jinjian Tan on 10/27/20.
 //
 #include "GenreAnalysis.h"
+#include "DeveloperAnalysis.h"
 #include "Utilities.h"
 #include<iostream>
 #include<algorithm>
@@ -54,5 +55,9 @@ int main(int argc, const char * argv[]){
     
     GenreAnalysis genreAnalysis;
     genreAnalysis.getPopularGenresBySales(games);
+    DeveloperAnalysis developAnalysis(utilities);
+    developAnalysis.getPercentageDevByPub();
+    developAnalysis.getPopularGamesByDeveloper("Nintendo", "userScore");
     return 0;
 }
+

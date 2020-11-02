@@ -1,3 +1,4 @@
+
 //
 //  DeveloperAnalysis.h
 //  csc340-midterm
@@ -35,10 +36,10 @@ public:
         2) sort the games by the given fields (sales or userscores)
         3) print out top 10 games of the sorting result.
      */
-    void getPopularGamesByDeveloper(string developer, string fieldname)
+    void getPopularGamesByDeveloper(string developer, string fieldname);
 private:
     Utilities utility;
     vector<Game> gameList;
-}
+};
 
 #endif /* DeveloperAnalysis_h */
