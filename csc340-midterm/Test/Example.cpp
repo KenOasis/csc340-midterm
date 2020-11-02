@@ -10,7 +10,7 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
-
+/*
 int main(int argc, const char * argv[]){
     Utilities utilities;
     // Load data file, pls change to you own path
@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]){
     sort(devPlatform.begin(), devPlatform.end(), globalSalesAscending);
     utilities.printByFields(devPlatform,fields,1);
     */
-    
+    /*
     GenreAnalysis genreAnalysis;
     genreAnalysis.getPopularGenresBySales(games);
     DeveloperAnalysis developAnalysis(utilities);
@@ -61,3 +61,4 @@ int main(int argc, const char * argv[]){
     return 0;
 }
 
+*/
