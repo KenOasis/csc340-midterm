@@ -64,7 +64,7 @@ class Utilities{
     // please check README.md to see the schema.
     // filedNum is the number of fields.
     void printByFields(vector<Game> gameCollection, string fields[], int fieldNum) const;
-    
+
     private:
         vector<Game> games;
     
