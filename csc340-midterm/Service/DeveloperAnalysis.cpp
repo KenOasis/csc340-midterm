@@ -1,3 +1,4 @@
+
 //
 //  DeveloperAnalysis.h
 //  csc340-midterm
@@ -112,7 +113,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
         for(i = 0; i < gamesByDev.size(); i++){
             if(i == 10)break;
             if(gamesByDev.at(i).getScores().getUserScore() != -1){
-                cout << setfill('-') << setw(47) << "" << endl;
+                cout << setfill('-') << setw(47) << "" << endl
                 cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getScores().getUserScore() << " /10 according to users."<< endl;
             }
         }
@@ -124,3 +125,4 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 
 
  }
+
