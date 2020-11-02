@@ -21,8 +21,7 @@ void PrintMenu() {
       cout << "A - Based on global/NA/EU/Japan/other video game sales and development, what are the ten most popular video game genres?" << endl;
       cout << "B - What percentage of developers outsource their publishing?" << endl;
       cout << "C - For a given developer, what are the most popular games they developed (by scores or by sales)" << endl;
-      cout << "D - For each specific platform, what are the most popular genres of games based on sales? " << endl;
-      cout << "E - For each specific platform, what are the most popular genres of games based on user scores? " << endl;
+      cout << "D - For each specific platform, what are the most popular genres of games based on sales or user scores? " << endl;
       cout << "F -  How has the popularity of certain genres changed over time? Which ones have grown? Which ones have fallen in popularity?" << endl;
       cout << "Q - No Questions. Quit. " << endl;
 
@@ -43,15 +42,11 @@ void PrintMenu() {
          break;
 
       case 'D':
-         cout << "For each specific platform, what are the most popular genres of games based on sales? " << getPopularGenresByPlaform(string platform, string fieldname);
-         break;
-
-      case 'E':
-         cout << "For each specific platform, what are the most popular genres of games based on user scores? " << getPopularGenresByPlaform(string platform, string fieldname);
+         cout << "For each specific platform, what are the most popular genres of games based on sales or user scores? " << getPopularGenresByPlaform(string platform, string fieldname);
          break;
 
       case 'F':
-         cout << "For each specific platform, what are the most popular genres of games based on user scores? " << getGenereOverYear(string genre);
+         cout << "How has the popularity of certain genres changed over time? Which ones have grown? Which ones have fallen in popularity?" << getGenereOverYear(string genre);
          break;
 
       case 'Q':        
