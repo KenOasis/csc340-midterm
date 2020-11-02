@@ -1,4 +1,9 @@
-
+//
+//  DeveloperAnalysis.h
+//  csc340-midterm
+//
+//  Created by Jinjian Tan on 10/30/20.
+//  Implemented by Juan Hernandez 11/1/20
 #include "DeveloperAnalysis.h"
 #include <vector>
 #include <iostream>
