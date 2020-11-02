@@ -35,7 +35,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
     }
     percentage = (pubEqualsdev / gameList.size()) * 100;
 
-    cout << percentage << "% of developers publish their own games." << endl;
+    cout << endl << percentage << "% of developers publish their own games." << endl << endl;
 }
 
  /*
@@ -74,6 +74,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 
         cout << "The top ten games based on sales are: " << endl;
         int i;
+        cout << endl;
         for(i = 0; i < gamesByDev.size(); i++){
             if(i == 10)break;
            if(gamesByDev.at(i).getSales().getGlobalSales() != -1){
@@ -83,6 +84,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
         }
         cout << setfill('-') << setw(47) << "" << endl;
         cout << "There are total: " << i << " game(s) listed." << endl;
+        cout << endl;
     }
     else if(fieldname == "userScore") {
         for(int i = 0; i < gamesByDev.size(); ++i) {
@@ -106,6 +108,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 
         cout << "The top ten games based on user scores are: " << endl;
         int i;
+        cout << endl;
         for(i = 0; i < gamesByDev.size(); i++){
             if(i == 10)break;
             if(gamesByDev.at(i).getScores().getUserScore() != -1){
@@ -115,6 +118,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
         }
         cout << setfill('-') << setw(47) << "" << endl;
         cout << "There are total: " << i << " game(s) listed." << endl;
+        cout << endl;
 
     }
 
