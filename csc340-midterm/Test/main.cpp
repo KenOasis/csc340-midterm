@@ -30,7 +30,7 @@ static void PrintMenu(Utilities utility) {
           cout << "1 - What's the most popular video game genre based on sales data?" << endl;
           cout << "2 - What percentage of developers outsource their publishing?" << endl;
           cout << "3 - For a given developer, what is the most popular games they developed (by scores or by sales)" << endl;
-          cout << "4 - For each specific platform (Game console: N64, GB, PS, etc.), what are the most popular genres of games based on sales or socres? " << endl;
+          cout << "4 - For each specific platform (Game console: N64, GB, PS, etc.), what are the most popular genres of games based on sales or scores? " << endl;
           cout << "5 - How has the popularity of certain genres changed over time? Which ones have grown? Which ones have fallen in popularity? " << endl;
           cout << "6 - No Questions. Quit. " << endl;
           cout << "Choose a number: ";
