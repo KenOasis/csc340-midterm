@@ -210,7 +210,5 @@ cout << "The most popular Platforms based on Scores are: " << endl << endl;
 		}
 	}
 }
-
-
-
+}
 
