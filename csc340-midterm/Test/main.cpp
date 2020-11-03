@@ -48,11 +48,7 @@ static void PrintMenu(Utilities utility) {
               break;
 
               case '3':
-              cout <<"3" << endl;
-              break;
-
-              case '4':
-              cout << "4" << endl;
+              cout << "3" << endl;
               {
                   string developer;
     
@@ -71,6 +67,11 @@ static void PrintMenu(Utilities utility) {
                       cout << "Wrong options" << endl;
                   }
               }
+              break;
+                
+                
+              case '4':
+              cout <<"4" << endl;
               break;
 
               case '5':
