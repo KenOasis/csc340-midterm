@@ -129,6 +129,17 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 void DeveloperAnalysis::getPopularGenresByPlatform(string platform, string fieldname) {
 
 vector<Game> Gamelist = getGamesByPlatform( gameCollection, platform);
@@ -144,57 +155,62 @@ for ( int  i = 1 ; i < Gamelist.size() ; i++ ) {
     totalSize = i;
 }
 
-for ( int j = i ; j < GameList.size() ; j++ ) {
-if (Gamelist.at(j).GetSales().getGlobalSales()  > MaxVal) {
-	totalSize = j;
-	MaxVal = Gamelist.at(j).getSales().getGlobalSales();
-}
-}
+	for ( int j = i ; j < GameList.size() ; j++ ) {
+		if (Gamelist.at(j).GetSales().getGlobalSales()  > MaxVal) {
+			totalSize = j;
+			MaxVal = Gamelist.at(j).getSales().getGlobalSales();
+		}
+	}
+	
+	
+cout << "The most popular Platforms based on Sales are: " << endl << endl;
+
+	for ( int i = 0; i < Gamelist.size(); i++ ){
+	if ( i >= topList ) {
+		break;
+	}
+
+		else {
+		cout << Gamelist.at(i).getPlatform() ", " 
+		cout << Gamelist.at(i).getSales().getGlobalSales() << " Million Copies." << endl;
+		}
+	}
 }
 		
 
-cout << “The most popular Platforms based on Sales are: ” << endl << endl;
-
-for ( int i = 0; i < Gamelist.size(); i++ ){
-if ( i >= topList ) {
-	break;
-}
-
-else {
-cout << Gamelist.at(i).getPlatform() “, ” 
-cout << Gamelist.at(i).getSales().getGlobalSales() << “ Million Copies.” << endl;
-}
-}
-
-if (fieldname == “userScore”) {
+	
+	
+if (fieldname == "userScore") {
 
 for ( int  i = 1 ; i < Gamelist.size() ; i++ ) {
 MaxVal = Gamelist.at(i).getScores().getUserScore();
 totalSize = i;
 }
 
-for ( int j = i ; j < GameList.size() ; j++ ) {
-if (Gamelist.at(j).getScores().getUserScore()  > MaxVal) {
-	totalSize = j;
-	MaxVal = Gamelist.at(j).getScores().getUserScore();
-}
-}
-}
+	for ( int j = i ; j < GameList.size() ; j++ ) {
+		if (Gamelist.at(j).getScores().getUserScore()  > MaxVal) {
+			totalSize = j;
+			MaxVal = Gamelist.at(j).getScores().getUserScore();
+		}
+	}
+	
+	
+
+cout << "The most popular Platforms based on Scores are: " << endl << endl;
 
 
-cout << “The most popular Platforms based on Scores are: ” << endl << endl;
+	for ( int i = 0; i < Gamelist.size(); i++ ){
+		if ( i >= topList ) {
+			break;
+		}
 
-
-for ( int i = 0; i < Gamelist.size(); i++ ){
-if ( i >= topList ) {
-	break;
+		else {
+		cout << Gamelist.at(i).getPlatform() "," 
+		cout  <<  ", With a rating of "  << Gamelist.at(i).getScores().getUserScore << "/10." << endl;
+		}
+	}
 }
 
-else {
-cout << Gamelist.at(i).getPlatform() "," 
-cout  <<  ", With a rating of "  << Gamelist.at(i).getScores().getUserScore << "/10." << endl;
-}
-}
 
 
 
