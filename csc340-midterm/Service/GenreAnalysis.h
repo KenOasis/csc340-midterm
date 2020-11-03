@@ -14,7 +14,7 @@ using namespace std;
 class GenreAnalysis{
 public:
     /*
-        This function addresses the question a) in the proposal
+        This function addresses the question 1) in the proposal
         
         steps (in general):
         1) sort all the game base on the sales
@@ -31,7 +31,7 @@ public:
     void getPopularGenresBySales(vector<Game> games);
     
     /*
-        This function addresses the question d) and e) in the proposal
+        This function addresses the question 4) in the proposal
 
         parameter @fieldname is the field be used to sort the games, it could be developer, sales, userscores or critic scores.
         parameter @platform is the platform to be researched
@@ -45,7 +45,7 @@ public:
      */
     void getPopularGenresByPlaform(string platform, string fieldname);
     /*
-        This function addresses the question f) in the proposal
+        This function addresses the question 5) in the proposal
      
         parameter @genre is the genre to be analyzed
      
