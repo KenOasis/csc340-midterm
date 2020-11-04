@@ -91,21 +91,47 @@ void GenreAnalysis::getPopularGenresBySales(vector<Game> games)
         genres[j + 1] = genre;
         totalSales[j + 1] = sales;
     }
-    cout << endl;
+    cout << setfill('-') << setw(55) << "" << endl;
+    cout << setfill(' ');
     cout << setw(15) << left << "Genre" << "|";
     cout << setw(15) << left << "Games #" << "|";
     cout << setw(15) << left << "Sales Total(millions)" << endl;
-    cout << setfill('-') << setw(47) << "" << endl;
+    cout << setfill('-') << setw(55) << "" << endl;
     cout << setfill(' ');
     for (int i = 0; i < 5; i++) {
         cout << setw(15) << left << genres[i] << "|";
         cout << setw(15) << left << count[i]  << "|";
         cout << setw(15) << left << totalSales[i] << endl;
     }
-    cout << setfill('-') << setw(47) << "" << endl;
+    cout << setfill('-') << setw(55) << "" << endl;
     cout << endl;
 }
 
-GenreAnalysis::GenreAnalysis(){
-    
+void GenreAnalysis::getGenreOverYear(string genre){
+    vector<int> years;
+    for(int i = 1980; i < 2020; ++i){
+        years.push_back(0);
+    }
+    vector<Game> gamesByGenre = utility.getGamesByGenre(genre);
+    for(int i = 0; i < gamesByGenre.size(); ++i){
+        if(gamesByGenre.at(i).getYearOfRelease() != -1){
+            years.at(gamesByGenre.at(i).getYearOfRelease() - 1980)++;
+        }
+    }
+    cout << "Genre: " << genre << endl;;
+    cout << setfill('-') << setw(21) << "" << endl;
+    cout << setfill(' ');
+    cout << setw(10) << left << "Year" << "|";
+    cout << setw(10) << left << "# of Game" << endl;
+    cout << setfill('-') << setw(21) << "" << endl;
+    cout << setfill(' ');
+    for(int i = 0; i < years.size(); ++i){
+        cout << setw(10) << left << 1980 + i << "|";
+        cout << setw(10) << left << years.at(i) << endl;
+    }
+    cout << setfill('-') << setw(21) << "" << endl;
+    cout << setfill(' ');
+}
+GenreAnalysis::GenreAnalysis(Utilities utility){
+    this->utility = utility;
 }

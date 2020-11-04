@@ -7,8 +7,8 @@
 
 #ifndef GenreAnalysis_h
 #define GenreAnalysis_h
+#include "Utilities.h"
 #include <string>
-#include "Game.h"
 #include <vector>
 using namespace std;
 class GenreAnalysis{
@@ -43,21 +43,24 @@ public:
         4) List(print) the top 5 genres by tokens.
        
      */
-    void getPopularGenresByPlaform(string platform, string fieldname);
+    void getPopularGenresByPlatform(string platform, string fieldname);
     /*
         This function addresses the question 5) in the proposal
      
         parameter @genre is the genre to be analyzed
      
-     *      1) get all the games by the given genre
+     *  1) get all the games by the given genre
         2) set tokens to count how many games in each year (1984-2015) , for example, if genre "platform" appeared
            15 times in 1984, then the token "1984" should be 15
         3) list all the tokens and do a litter analysis on it
            (increasing or decrease by year? floating? flat?)
      */
-    void getGenereOverYear(string genre);
+    void getGenreOverYear(string genre);
     
-    GenreAnalysis();
+    GenreAnalysis(Utilities utility);
+    
+private:
+    Utilities utility;
 };
  
 #endif /* GenreAnalysis_h */
