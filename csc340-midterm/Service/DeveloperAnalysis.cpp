@@ -206,7 +206,7 @@ cout << "The most popular Platforms based on Scores are: " << endl << endl;
 		else {
 		cout << gamesByPlatform.at(i).getPlatform() ",";
 		cout  <<  ", With a rating of ";
-cout << gamesByPlatform.at(i).getScores().getUserScore << "/10." << endl;
+cout << gamesByPlatform.at(i).getScores().getUserScore() << "/10." << endl;
 		}
 	}
 }
