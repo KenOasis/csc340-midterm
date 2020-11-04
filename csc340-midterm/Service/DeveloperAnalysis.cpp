@@ -18,7 +18,7 @@ DeveloperAnalysis::DeveloperAnalysis(Utilities tools){
 }
 
 /*
-        This function addresses the question b) in the proposal
+        This function addresses the question 2) in the proposal
 
         1) get all the games
         2) count the number of entry which "publisher" equal "developer"
@@ -42,7 +42,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 }
 
  /*
-        This function addresses the question c) in the proposal
+        This function addresses the question 3) in the proposal
         parameter @developer is the developer to be analyzed
         parameter @fieldname is the field be used to sort the game
                              it could be sales or userscore
@@ -125,4 +125,6 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 
 
  }
+
+
 
