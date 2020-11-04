@@ -67,13 +67,25 @@ static void PrintMenu(Utilities utility) {
               }
               break;
                 
-                
               case '4':
-              cout <<"4" << endl;
-              break;
-
-              case '4':
-              cout << "4" << endl;
+              {
+                  string platform;
+                  int option;
+                  cout << "Pls enter the platform:" << endl;
+                  cin >> platform;
+                  cout << "1 - Global Sales" << endl;
+                  cout << "2 - User Score" << endl;
+                  cin >> option;
+                  cout << "Please select:" << endl;
+                  if(option == 1){
+                      genreAnalysis.getPopularGenresByPlatform(utility, platform, "sales");
+                  }else if(option == 2){
+                      genreAnalysis.getPopularGenresByPlatform(utility, platform, "userScore");
+                  }else{
+                      cout << "Wrong options" << endl;
+                  }
+    
+              }
               break;
 
               case '5':

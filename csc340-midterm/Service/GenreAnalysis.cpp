@@ -132,6 +132,83 @@ void GenreAnalysis::getGenreOverYear(string genre){
     cout << setfill('-') << setw(21) << "" << endl;
     cout << setfill(' ');
 }
+
+void GenreAnalysis::getPopularGenresByPlatform(Utilities utility, string platform, string fieldname) {
+
+    vector<Game> gamesByPlatform = utility.getGamesByPlatform( platform);
+
+    int topList = 10;
+    int totalSize;
+    double MaxVal;
+    Game temp1, temp2;
+
+    if (fieldname == "sales") {
+
+        for ( int  i = 1 ; i < gamesByPlatform.size() ; i++ ) {
+            MaxVal = gamesByPlatform.at(i).getSales().getGlobalSales();
+            totalSize = i;
+
+            for ( int j = i ; j < gamesByPlatform.size() ; j++ ) {
+                if (gamesByPlatform.at(j).getSales().getGlobalSales()  > MaxVal) {
+                    totalSize = j;
+                    MaxVal = gamesByPlatform.at(j).getSales().getGlobalSales();
+                }
+            }
+    
+            temp1 = gamesByPlatform.at(i);
+            temp2 = gamesByPlatform.at(totalSize);
+            gamesByPlatform.at(i) = temp2;
+            gamesByPlatform.at(totalSize) = temp1;
+        }
+    
+        cout << "The most popular genres on " << platform << " based on global sales are:" << endl;
+        cout << setfill('-') << setw(50) << "" << endl;
+        cout << setfill(' ');
+        for ( int i = 0; i < gamesByPlatform.size(); i++ ) {
+            if ( i >= topList ) {
+                break;
+            }else {
+                cout << gamesByPlatform.at(i).getPlatform() << ", ";
+                cout << gamesByPlatform.at(i).getGameName() << ", ";
+                cout << gamesByPlatform.at(i).getSales().getGlobalSales() << " Million Copies." << endl;
+            }
+        }
+    }else if (fieldname == "userScore") {
+        for ( int  i = 1 ; i < gamesByPlatform.size() ; i++ ) {
+            MaxVal = gamesByPlatform.at(i).getScores().getUserScore();
+            totalSize = i;
+
+            for ( int j = i ; j < gamesByPlatform.size() ; j++ ) {
+                if(gamesByPlatform.at(j).getScores().getUserScore()  > MaxVal) {
+                    totalSize = j;
+                    MaxVal = gamesByPlatform.at(j).getScores().getUserScore();
+                }
+            }
+    
+            temp1 = gamesByPlatform.at(i);
+            temp2 = gamesByPlatform.at(totalSize);
+            gamesByPlatform.at(i) = temp2;
+            gamesByPlatform.at(totalSize) = temp1;
+        }
+
+        cout << "The most popular genres on " << platform << " based on global user scores are:" << endl;
+        cout << setfill('-') << setw(50) << "" << endl;
+        cout << setfill(' ');
+        for ( int i = 0; i < gamesByPlatform.size(); i++ ) {
+            if ( i >= topList ) {
+                break;
+            }else if(gamesByPlatform.at(i).getScores().getUserScore() != -1){
+                
+                cout << gamesByPlatform.at(i).getPlatform() << ", ";
+                cout << gamesByPlatform.at(i).getGameName() ;
+                cout  <<  ", With a rating of ";
+                cout << gamesByPlatform.at(i).getScores().getUserScore() << "/10." << endl;
+            }
+        }
+    }
+    cout << setfill('-') << setw(50) << "" << endl;
+    cout << setfill(' ');
+}
 GenreAnalysis::GenreAnalysis(Utilities utility){
     this->utility = utility;
 }
