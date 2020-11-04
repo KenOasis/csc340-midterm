@@ -43,7 +43,7 @@ public:
         4) List(print) the top 5 genres by tokens.
        
      */
-    void getPopularGenresByPlatform(string platform, string fieldname);
+    void getPopularGenresByPlatform(Utilities utility,string platform, string fieldname);
     /*
         This function addresses the question f) in the proposal
      
