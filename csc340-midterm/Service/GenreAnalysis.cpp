@@ -219,3 +219,88 @@ cout << gamesByPlatform.at(i).getScores().getUserScore() << "/10." << endl;
 	}
 }
 }
+
+
+
+
+
+
+
+void GenreAnalysis::getPopularGenresByPlatform(string platform, string fieldname) {
+
+vector<Game> gamesByPlatform = utility.getGamesByPlatform(gameCollection, platform);
+
+int topList = 10;
+int totalSize;
+double MaxVal;
+Game temp1;
+Game temp2;
+
+if (fieldname == "sales") {
+
+for ( int  i = 1 ; i < gamesByPlatform.size() ; i++ ) {
+    MaxVal = gamesByPlatform.at(i).getSales().getGlobalSales();
+    totalSize = i;
+
+	for ( int j = i ; j < gamesByPlatform.size() ; j++ ) {
+		if (gamesByPlatform.at(j).GetSales().getGlobalSales()  > MaxVal) {
+			totalSize = j;
+			MaxVal = gamesByPlatform.at(j).getSales().getGlobalSales();
+		}
+	}
+	
+	temp1 = gamesByPlatform.at(i);
+        temp2 = gamesByPlatform.at(totalSize);
+        gamesByPlatform.at(i) = temp2;
+        gamesByPlatform.at(totalSize) = temp1;
+}
+	
+cout << "The most popular Platforms based on Sales are: " << endl << endl;
+
+	for ( int i = 1; i < gamesByPlatform.size(); i++ ) {
+	if ( i > topList ) break;
+
+	else {
+	cout << gamesByPlatform.at(i).getPlatform() ", " 
+	cout << gamesByPlatform.at(i).getSales().getGlobalSales() << " Million Copies." << endl;
+	}
+}
+	
+}	
+
+	
+	
+else if (fieldname == "userScore") {
+
+for ( int  i = 1 ; i < gamesByPlatform.size() ; i++ ) {
+MaxVal = gamesByPlatform.at(i).getScores().getUserScore();
+totalSize = i;
+
+	for ( int j = i ; j < gamesByPlatform.size() ; j++ ) {
+		if (gamesByPlatform.at(j).getScores().getUserScore()  > MaxVal) {
+			totalSize = j;
+			MaxVal = gamesByPlatform.at(j).getScores().getUserScore();
+		}
+	}
+	
+	    temp1 = gamesByPlatform.at(i);
+            temp2 = gamesByPlatform.at(totalSize);
+            gamesByPlatform.at(i) = temp2;
+            gamesByPlatform.at(totalSize) = temp1;
+}	
+
+cout << "The most popular Platforms based on Scores are: " << endl << endl;
+
+
+	for ( int i = 1; i < gamesByPlatform.size(); i++ ) {
+		if ( i > topList ) break;
+
+		else {
+		cout << gamesByPlatform.at(i).getPlatform() ",";
+		cout  <<  ", With a rating of ";
+cout << gamesByPlatform.at(i).getScores().getUserScore() << "/10." << endl;
+		}
+	}
+}
+}
+
