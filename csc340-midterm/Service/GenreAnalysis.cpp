@@ -156,7 +156,8 @@ cout << "The most popular Platforms based on Sales are: " << endl << endl;
 	cout << gamesByPlatform.at(i).getSales().getGlobalSales() << " Million Copies." << endl;
 	}
 }
-		
+	
+}	
 
 	
 	
