@@ -134,7 +134,7 @@ void DeveloperAnalysis::getPercentageDevByPub() {
 
 void DeveloperAnalysis::getPopularGenresByPlatform(string platform, string fieldname) {
 
-vector<Game> Gamelist = getGamesByPlatform( gameCollection, platform);
+vector<Game> Gamelist = utility.getGamesByPlatform(gameCollection, platform);
 
 int topList = 10;
 int totalSize;
