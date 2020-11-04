@@ -123,7 +123,8 @@ vector<Game> gamesByPlatform = utility.getGamesByPlatform(gameCollection, platfo
 int topList = 10;
 int totalSize;
 double MaxVal;
-Game temp1, temp2;
+Game temp1;
+Game temp2;
 
 if (fieldname == "sales") {
 
