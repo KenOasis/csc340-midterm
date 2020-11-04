@@ -139,6 +139,7 @@ vector<Game> Gamelist = getGamesByPlatform( gameCollection, platform);
 int topList = 10;
 int totalSize;
 int MaxVal;
+Game temp1, temp2;
 
 if (fieldname == "sales") {
 
@@ -152,6 +153,11 @@ for ( int  i = 1 ; i < Gamelist.size() ; i++ ) {
 			MaxVal = Gamelist.at(j).getSales().getGlobalSales();
 		}
 	}
+	
+	temp1 = Gamelist.at(i);
+        temp2 = Gamelist.at(totalSize);
+        Gamelist.at(i) = temp2;
+        Gamelist.at(totalSize) = temp1;
 }
 	
 cout << "The most popular Platforms based on Sales are: " << endl << endl;
@@ -182,6 +188,11 @@ totalSize = i;
 			MaxVal = Gamelist.at(j).getScores().getUserScore();
 		}
 	}
+	
+	    temp1 = Gamelist.at(i);
+            temp2 = Gamelist.at(totalSize);
+            Gamelist.at(i) = temp2;
+            Gamelist.at(totalSize) = temp1;
 }	
 
 cout << "The most popular Platforms based on Scores are: " << endl << endl;
