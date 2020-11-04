@@ -116,7 +116,7 @@ GenreAnalysis::GenreAnalysis(){
 
 
 
-void DeveloperAnalysis::getPopularGenresByPlatform(string platform, string fieldname) {
+void GenreAnalysis::getPopularGenresByPlatform(string platform, string fieldname) {
 
 vector<Game> gamesByPlatform = utility.getGamesByPlatform(gameCollection, platform);
 
