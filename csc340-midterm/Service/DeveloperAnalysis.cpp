@@ -5,6 +5,7 @@
 //
 //  Created by Jinjian Tan on 10/30/20.
 //  Implemented by Juan Hernandez 11/1/20
+//  Implemented by Mathew O Abiola 11/2/20
 #include "DeveloperAnalysis.h"
 #include <vector>
 #include <iostream>
@@ -35,8 +36,9 @@ void DeveloperAnalysis::getPercentageDevByPub() {
        }
     }
     percentage = (pubEqualsdev / gameList.size()) * 100;
-
+    cout << setfill('-') << setw(55) << "" << endl;
     cout << endl << percentage << "% of developers publish their own games." << endl << endl;
+    cout << setfill('-') << setw(55) << "" << endl;
 }
 
  /*
@@ -73,17 +75,16 @@ void DeveloperAnalysis::getPercentageDevByPub() {
          gamesByDev.at(maxIndex) = temp1;
        }
 
-        cout << "The top ten games based on sales are: " << endl;
+        cout << "The top ten games of " << developer << " based on sales are: " << endl;
         int i;
-        cout << endl;
+        cout << setfill('-') << setw(47) << "" << endl;
         for(i = 0; i < gamesByDev.size(); i++){
             if(i == 10)break;
            if(gamesByDev.at(i).getSales().getGlobalSales() != -1){
-               cout << setfill('-') << setw(47) << "" << endl;
                cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getSales().getGlobalSales() << " million units"<< endl;
            }
         }
-        cout << setfill('-') << setw(47) << "" << endl;
+        cout << setfill('-') << setw(55) << "" << endl;
         cout << "There are total: " << i << " game(s) listed." << endl;
         cout << endl;
     }
@@ -107,17 +108,16 @@ void DeveloperAnalysis::getPercentageDevByPub() {
             gamesByDev.at(maxIndex) = temp1;
        }
 
-        cout << "The top ten games based on user scores are: " << endl;
+        cout << "The top ten games of " << developer << " based on user scores are: " << endl;
         int i;
-        cout << endl;
+        cout << setfill('-') << setw(47) << "" << endl;
         for(i = 0; i < gamesByDev.size(); i++){
             if(i == 10)break;
             if(gamesByDev.at(i).getScores().getUserScore() != -1){
-                cout << setfill('-') << setw(47) << "" << endl
                 cout << gamesByDev.at(i).getGameName() << ": " << gamesByDev.at(i).getScores().getUserScore() << " /10 according to users."<< endl;
             }
         }
-        cout << setfill('-') << setw(47) << "" << endl;
+        cout << setfill('-') << setw(55) << "" << endl;
         cout << "There are total: " << i << " game(s) listed." << endl;
         cout << endl;
 

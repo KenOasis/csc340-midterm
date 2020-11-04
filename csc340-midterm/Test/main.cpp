@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-
+static string selectGenre();
 static void PrintMenu(Utilities);
 int main() {
    Utilities utility;
@@ -17,13 +17,14 @@ int main() {
    utility.LoadFile(filepath);
 
    PrintMenu(utility);
+    
    return 0;
 }
 
 static void PrintMenu(Utilities utility) {
       char option;
       vector<Game> games = utility.getAllGames();
-      GenreAnalysis genreAnalysis;
+      GenreAnalysis genreAnalysis(utility);
       DeveloperAnalysis developAnalysis(utility);
       do {
           cout << "What question would you like to ask?" << endl;
@@ -38,21 +39,14 @@ static void PrintMenu(Utilities utility) {
 
           switch (option) {
               case '1':
-              cout << "1" <<endl;
               genreAnalysis.getPopularGenresBySales(games);
               break;
 
               case '2':
-              cout << "2" << endl;
               developAnalysis.getPercentageDevByPub();
               break;
 
               case '3':
-              cout <<"3" << endl;
-              break;
-
-              case '4':
-              cout << "4" << endl;
               {
                   string developer;
     
@@ -73,8 +67,17 @@ static void PrintMenu(Utilities utility) {
               }
               break;
 
+              case '4':
+              cout << "4" << endl;
+              break;
+
               case '5':
-              cout << "5" << endl;
+              {
+                  string genre;
+                  cout << "What genre do you want to check?" << endl;
+                  genre = selectGenre();
+                  genreAnalysis.getGenreOverYear(genre);
+              }
               break;
 
               case '6':
@@ -86,4 +89,62 @@ static void PrintMenu(Utilities utility) {
               break;
           }
    }while (option != '6');
+}
+// Print the sub-menu and get genre from user selection.
+static string selectGenre(){
+    string genre;
+    int option;
+    cout << "Please selet one of the genre:" << endl;
+    cout << "1 - Action" << endl;
+    cout << "2 - Adventure" << endl;
+    cout << "3 - Fighting" << endl;
+    cout << "4 - Platform" << endl;
+    cout << "5 - Puzzle" << endl;
+    cout << "6 - Racing" << endl;
+    cout << "7 - Role-Playing" << endl;
+    cout << "8 - Shooter" << endl;
+    cout << "9 - Simulation" << endl;
+    cout << "10 - Sports" << endl;
+    cout << "11 - Strategy" << endl;
+    cout << "other - Misc" << endl;
+    cin >> option;
+    switch (option){
+        case 1:
+            genre = "Action";
+            break;
+        case 2:
+            genre = "Adventure";
+            break;
+        case 3:
+            genre = "Fighting";
+            break;
+        case 4:
+            genre = "Platform";
+            break;
+        case 5:
+            genre = "Puzzle";
+            break;
+        case 6:
+            genre = "Racing";
+            break;
+        case 7:
+            genre = "Role-Playing";
+            break;
+        case 8:
+            genre = "Shooter";
+            break;
+        case 9:
+            genre = "Simulation";
+            break;
+        case 10:
+            genre = "Sports";
+            break;
+        case 11:
+            genre = "Strategy";
+            break;
+        default:
+            genre = "Misc";
+            break;
+    }
+    return genre;
 }
