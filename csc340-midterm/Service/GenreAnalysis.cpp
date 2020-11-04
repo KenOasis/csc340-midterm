@@ -195,4 +195,5 @@ cout << gamesByPlatform.at(i).getScores().getUserScore << "/10." << endl;
 		}
 	}
 }
+}
 
