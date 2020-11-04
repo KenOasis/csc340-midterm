@@ -182,8 +182,8 @@ totalSize = i;
 cout << "The most popular Platforms based on Scores are: " << endl << endl;
 
 
-	for ( int i = 0; i < gamesByPlatform.size(); i++ ) {
-		if ( i >= topList ) {
+	for ( int i = 1; i < gamesByPlatform.size(); i++ ) {
+		if ( i > topList ) {
 			break;
 		}
 
