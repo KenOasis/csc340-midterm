@@ -147,8 +147,8 @@ for ( int  i = 1 ; i < gamesByPlatform.size() ; i++ ) {
 	
 cout << "The most popular Platforms based on Sales are: " << endl << endl;
 
-	for ( int i = 0; i < gamesByPlatform.size(); i++ ) {
-	if ( i >= topList ) break;
+	for ( int i = 1; i < gamesByPlatform.size(); i++ ) {
+	if ( i > topList ) break;
 
 	else {
 	cout << gamesByPlatform.at(i).getPlatform() ", " 
@@ -183,9 +183,7 @@ cout << "The most popular Platforms based on Scores are: " << endl << endl;
 
 
 	for ( int i = 1; i < gamesByPlatform.size(); i++ ) {
-		if ( i > topList ) {
-			break;
-		}
+		if ( i > topList ) break;
 
 		else {
 		cout << gamesByPlatform.at(i).getPlatform() ",";
