@@ -161,7 +161,7 @@ cout << "The most popular Platforms based on Sales are: " << endl << endl;
 
 	
 	
-if (fieldname == "userScore") {
+else if (fieldname == "userScore") {
 
 for ( int  i = 1 ; i < gamesByPlatform.size() ; i++ ) {
 MaxVal = gamesByPlatform.at(i).getScores().getUserScore();
