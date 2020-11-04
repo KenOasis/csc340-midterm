@@ -131,6 +131,35 @@ void GenreAnalysis::getGenreOverYear(string genre){
     }
     cout << setfill('-') << setw(21) << "" << endl;
     cout << setfill(' ');
+ 
+ // little analysis on the popularity of the genre
+    int increasing = 0,decreasing = 0,flat = 0;
+    for(int i=1981; i<2020;i++)
+    {
+       if(years.at(i-1980)>years.at(i-1981))
+            increasing++;
+       else if(years.at(i-1980)<years.at(i-1981))
+            decreasing++;
+       else 
+            flat++;
+    }
+    if(increasing>decreasing && increasing>flat)
+    {
+       cout<<"Popularity Increased"<<endl;
+    }
+    else if(decreasing>increasing && decreasing>flat)
+    {
+       cout<<"Popularity Decreased"<<endl;
+    }
+    else if(flat>increasing && decreasing<flat)
+    {
+       cout<<"Popularity is Flat"<<endl;
+    }
+    else
+    {
+       cout<<"Popularity is floating"<<endl;
+    }
+    
 }
 GenreAnalysis::GenreAnalysis(Utilities utility){
     this->utility = utility;
