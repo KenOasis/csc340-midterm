@@ -212,3 +212,6 @@ void GenreAnalysis::getPopularGenresByPlatform(Utilities utility, string platfor
 GenreAnalysis::GenreAnalysis(Utilities utility){
     this->utility = utility;
 }
+
+
+
