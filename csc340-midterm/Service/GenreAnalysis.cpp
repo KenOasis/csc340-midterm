@@ -110,7 +110,7 @@ void GenreAnalysis::getPopularGenresBySales(vector<Game> games)
 void GenreAnalysis::getGenreOverYear(string genre){
     vector<int> years;
     for(int i = 1980; i < 2020; ++i){
-        years.push_back(0);
+         years.push_back(0);
     }
     vector<Game> gamesByGenre = utility.getGamesByGenre(genre);
     for(int i = 0; i < gamesByGenre.size(); ++i){
